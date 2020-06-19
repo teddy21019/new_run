@@ -1,0 +1,1 @@
+$errMsg = {"404_STARTED", "EXIST_NUM", }

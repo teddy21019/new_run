@@ -1,0 +1,87 @@
+html{
+    background: center fixed;
+    background-image:linear-gradient(0deg,  #82c6f3,#e9f8ff);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100%;
+}
+
+.center {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    height: 90%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+input {
+    position:relative;
+    font-size: 1.4em;
+    background: linear-gradient(21deg, #f9fdff, #bddff3);
+    padding: 3px;
+    /* display: inline-block; */
+    border-radius: 9999em;
+    padding:5px 15px; 
+    border:0 none;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    /* position:absolute; */
+}
+.finish-h{
+    font-family: Microsoft JhengHei;
+    font-size: 30px;
+
+}
+span{
+    font-family: Microsoft JhengHei;
+    font-size: 12px;
+
+}
+#but {
+    background-color:#bed8f5;
+    -moz-border-radius:28px;
+    -webkit-border-radius:28px;
+    border-radius:28px;
+    border:1px solid #3662f3;
+    display:inline-block;
+    cursor:pointer;
+    color:#000000;
+    font-family:Microsoft JhengHei;
+    font-size:20px;
+    padding:16px 31px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #938cf8;
+}
+.myButton:hover {
+    background-color:#5cbf2a;
+
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+
+}
+
+.logo{
+    width:75%; 
+    height : auto
+}
+
+@media only screen and (max-width: 800px) {
+
+    .center{
+        width: 50%;
+    }
+    .logo{
+        width:90%;
+        height: auto;
+    }
+} 
