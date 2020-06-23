@@ -5,9 +5,6 @@ Vue.component('timer',
         methods: {
             start() { },
             reset() { }
-        },
-        computed:{
-            type.pass_time
         }
 
 
@@ -73,7 +70,7 @@ var app = new Vue({
             });
         })
 
-    }
+    },
 
     computed:{
         
