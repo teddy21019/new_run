@@ -33,6 +33,13 @@ class RunType
         }
     }
 
+    public function getAll(){
+        $t = $this->_db->select('run_type');
+        if($t->count()){
+            return $t->getResults();
+        }
+    }
+
     private function exist($id)
     {
         /**

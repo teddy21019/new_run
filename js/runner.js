@@ -1,5 +1,5 @@
 let run_groups = [];
-let run_types = {1:"挑戰組", 2:"樂活組"};
+let run_types = {};
 let searchValue;
 $(document).ready(function () {
 

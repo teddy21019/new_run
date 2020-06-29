@@ -4,7 +4,7 @@ html{
     background-image:linear-gradient(0deg,  #82c6f3,#e9f8ff);
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100%;
+    height: 100%;
     font-family: Microsoft JhengHei;
 }
 body{
