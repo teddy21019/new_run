@@ -87,6 +87,7 @@
     margin-left: var(--nav-width);
     padding: 10px 50px;
     overflow-y: auto;
+    height:95%
 }
 
 

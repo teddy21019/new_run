@@ -13,8 +13,9 @@ ob_start();
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/sidebar.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <script src="js/tab.js"></script>
-    <script src="js/timer.js"></script>
+    <!-- <script src="js/timer.js"></script> -->
     <script src="js/runner.js"></script>
     <script src="js/staff.js"></script>
     <script src="js/recordButton.js"></script>
@@ -24,6 +25,30 @@ ob_start();
 
 
 </head>
+
+<script type="text/x-template" id="timer_template">
+    <div class="timer-grid ">
+        <div class="timer_left">
+            <div class="timer_title">
+                {{name}}
+            </div>
+            <div class="timer_buttons">
+                <button v-if="!type.started" @click="start">開始</button>
+                <button v-if="type.started" @click="reset">重置</button>
+            </div>
+        </div>
+        <div class="timer_right">
+            <div class="start_section">
+                <div>開始時間</div>
+                <div>{{start_time}}</div>
+            </div>
+            <div class="pass_section">
+                <div>經過時間</div>
+                <div>{{pass_time}}</div>
+            </div>
+        </div>
+    </div>
+</script>
 
 
 <body>
@@ -44,33 +69,45 @@ ob_start();
         <div id="overall">
         <!-- 挑戰組vs樂活組主控區 -->
             <div id="run_panel">
-                <div id="long_run">
+            <div id="app">
+                <timer 
+                    v-for="type in run_types"
+                    :type="type">
+                </timer>
+            </div>
+                <!-- <div id="long_run">
                     <h1>挑戰組</h1>
                     <div class="timer">
-                        <p>開始時間</p>
-                        <h2 id="1_start_time"></h2>
-                        <p>經過時間</p>
-                        <h2 id="1_passed_time"></h2>
-                        <button id = "1_start_btn" class="start_button">開始</button>
-                        <button id="1_reset_btn">重製</button>
+                        <p class="start_p">開始時間</p>
+                        <h2 class="start_t" id="1_start_time"></h2>
+                        <p class="pass_p">經過時間</p>
+                        <h2 class="pass_t"id="1_passed_time"></h2>
+                        <button class="start_button" id = "1_start_btn" >開始</button>
+                        <button class="reset_button" id="1_reset_btn">重製</button>
   
                     </div>
                 </div>
                 <div id="short_run">
                     <h1>樂活組</h1>
                     <div class="timer">
-                        <p>開始時間</p>
-                        <h2 id="2_start_time"></h2>
-                        <p>經過時間</p>
-                        <h2 id="2_passed_time"></h2>     
-                        <button id = "2_start_btn" class="start_button">開始</button>
-                        <button id="2_reset_btn">重製</button>
+                        <p class="start_p">開始時間</p>
+                        <h2  class="start_t"id="2_start_time"></h2>
+                        <p class="pass_p">經過時間</p>
+                        <h2 class="pass_t" id="2_passed_time"></h2>     
+                        <button class="start_button" id = "2_start_btn">開始</button>
+                        <button class="reset_button" id="2_reset_btn">重製</button>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div id="record">
                 <input id="record_num" type="number" placeholder="請輸入跑者ID">
                 <button id="record_button">登錄</button>
+                <div style="opacity:0" id="record_msg_box">
+                    <span id="record_msg">1039登錄成功</span>
+                </div>
+            </div>
+            <div id="map">
+                <img src="https://i.imgur.com/Oz8BNe4.jpg" alt="" srcset="">
             </div>
         </div>
         <div id="staff" class="grid">
@@ -178,8 +215,7 @@ ob_start();
                         <div>
                             <label for="run_type">組別</label>
                             <select name="run_type" id="r_run_type">
-                                <option value="1">挑戰組</option>
-                                <option value="2">樂活組</option>
+                        
                             </select>
                         </div>
                         <div>
@@ -257,6 +293,9 @@ ob_start();
     header("Location: login.php");
 }
 ?>
+
+<script src="js/v-timer.js"></script>
+
     
 </body>
 </html>
