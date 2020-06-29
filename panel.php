@@ -15,7 +15,7 @@ ob_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <script src="js/tab.js"></script>
-    <script src="js/timer.js"></script>
+    <!-- <script src="js/timer.js"></script> -->
     <script src="js/runner.js"></script>
     <script src="js/staff.js"></script>
     <script src="js/recordButton.js"></script>
@@ -102,7 +102,7 @@ ob_start();
             <div id="record">
                 <input id="record_num" type="number" placeholder="請輸入跑者ID">
                 <button id="record_button">登錄</button>
-                <div id="record_msg_box">
+                <div style="opacity:0" id="record_msg_box">
                     <span id="record_msg">1039登錄成功</span>
                 </div>
             </div>
@@ -215,8 +215,7 @@ ob_start();
                         <div>
                             <label for="run_type">組別</label>
                             <select name="run_type" id="r_run_type">
-                                <option value="1">挑戰組</option>
-                                <option value="2">樂活組</option>
+                        
                             </select>
                         </div>
                         <div>

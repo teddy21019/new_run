@@ -51,13 +51,20 @@ Contact
         grid-row-end: 3;
     }
 
-        .timer-grid {
-            
-        display: grid;
+    #app>.timer-grid:nth-child(even){
         background-color: rgba(127, 255, 212, 0.11);
-        grid-template-columns: 2fr 3fr;
-
+    }
+    #app>.timer-grid:nth-child(odd){
+        background-color: rgba(68, 176, 209, 0.11);
+    }
+    
+    .timer-grid {
+            display: grid;
+            /* background-color: rgba(127, 255, 212, 0.11); */
+            grid-template-columns: 2fr 3fr;
+            
         }
+    
 
         .timer_left {
         height:100%;
@@ -108,8 +115,10 @@ Contact
 }
 #record_msg_box{
     background-color: rgba(0, 0, 0, 0.185);
-    width:30%;
+    width:max-content;
     margin:3px auto;
+    padding-left: 10px;
+    padding-right: 10px;
     border-radius: 10px;
 }
 

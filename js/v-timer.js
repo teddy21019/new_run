@@ -5,7 +5,6 @@ Vue.component('timer',
         data:function(){
             return {
                 name:this.type.name,
-                // pass_time:null,
                 now:null
             }
         },
@@ -62,9 +61,6 @@ Vue.component('timer',
             }
         },
         computed:{
-            // name : function(){
-            //     return this.type.name;
-            // },
             start_time:function(){
                 return this.type.start_time;
             },
@@ -138,6 +134,9 @@ var app = new Vue({
                 console.log(newType);   
                 app.run_types.push(newType);
 
+                //also change option in runner table
+                run_types[type['id']]=type['name'];
+                $("#r_run_type").append(`<option value="${type['id']}">${type['name']}</option>`)
             });
         })
 
