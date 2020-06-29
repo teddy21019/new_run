@@ -30,21 +30,21 @@ ob_start();
     <div class="timer-grid ">
         <div class="timer_left">
             <div class="timer_title">
-                {{type.name}}
+                {{name}}
             </div>
             <div class="timer_buttons">
-                <button @click="start">開始</button>
-                <button @click="reset">重置</button>
+                <button v-if="!type.started" @click="start">開始</button>
+                <button v-if="type.started" @click="reset">重置</button>
             </div>
         </div>
         <div class="timer_right">
             <div class="start_section">
                 <div>開始時間</div>
-                <div>{{type.start_time}}</div>
+                <div>{{start_time}}</div>
             </div>
             <div class="pass_section">
                 <div>經過時間</div>
-                <div>{{type.pass_time}}</div>
+                <div>{{pass_time}}</div>
             </div>
         </div>
     </div>

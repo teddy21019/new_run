@@ -2,13 +2,94 @@ Vue.component('timer',
     {
         template: "#timer_template",
         props: ['type'],
+        data:function(){
+            return {
+                name:this.type.name,
+                // pass_time:null,
+                now:null
+            }
+        },
+        mounted: function(){
+            this.timer();
+        },
         methods: {
-            start() { },
-            reset() { }
+            start() {
+                let id = this.type.id;
+                let confirmResult = confirm("確定要開始？");
+                    if (confirmResult) {
+                        $.post("php/functions/start.php",
+                            {
+                                'action': 'start',
+                                'type': id
+                            },
+                            function (result) {
+                                console.log(result);
+                                if (result == "404_STARTED") {
+                                    alert("已開始！")
+                                } else if (result == "SUCCESS") {
+                                    location.reload();
+                                }
+                            });
+                    }
+             },
+            reset() { 
+                let id = this.type.id;
+                let confirmResult = confirm("確定要重製？");
+                    if (confirmResult) {
+
+                        $.post("php/functions/start.php",
+                            {
+                                'action': 'reset',
+                                'type': id
+                            },
+                            function (result) {
+                                console.log(result);
+
+                                if (result == "SUCCESS") {
+                                    location.reload();
+                                }
+                            }
+                        )
+
+                    }
+            },
+            timer(){
+                // const self=this;
+                setInterval(function(){
+                    let now = new Date();
+                    this.now = [now.getHours(), now.getMinutes(), now.getSeconds()];
+                }.bind(this),30);
+            }
+        },
+        computed:{
+            // name : function(){
+            //     return this.type.name;
+            // },
+            start_time:function(){
+                return this.type.start_time;
+            },
+            pass_time: function(){
+
+                if(this.now==null){
+                    return
+                }
+                if(this.type.started==true){
+                    let time = timeArrayToStr(
+                        timeInterval(
+                            timeStrToArray(this.start_time), 
+                                this.now)
+                    )
+                    return time;
+                }else{
+                    return "";
+                }
+            }
         }
 
 
     });
+
+
 var app = new Vue({
     el: "#app",
     data: {
@@ -41,7 +122,6 @@ var app = new Vue({
 
 
             result.forEach(type => {
-                console.log(type);
                 let newType = {};
                 newType.id = type['id'];
                 newType.name = type['name'];
@@ -49,22 +129,13 @@ var app = new Vue({
                     newType.started = true;
                     newType.start_time = type['start_time'].split(" ")[1];
 
-                    setInterval(function(){
-                        let now = new Date();
-                        now = [now.getHours(), now.getMinutes(), now.getSeconds()];
-                        newType.pass_time = timeArrayToStr(
-                            timeInterval(
-                                timeStrToArray(newType.start_time), 
-                                    now)
-                        );
-
-                    },30)
+                    
                 }else{
                     newType.started = false;
                     newType.start_time = "";
                     newType.pass_time = "";
                 }
-                // console.log(newType);   
+                console.log(newType);   
                 app.run_types.push(newType);
 
             });
