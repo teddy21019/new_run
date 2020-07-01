@@ -1,0 +1,140 @@
+:root{
+    --content-block-color:rgba(210, 239, 252,0.2);
+    --bubble-size:25px;
+}
+
+html{
+    background: center fixed;
+    background-image:linear-gradient(0deg,  #82c6f3,#e9f8ff);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100%;
+}
+.supply-title{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+#send-supply{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+button{
+    height:40px;
+    width:70px;
+    border-radius: 10px;
+    border-width: thin;
+    background: linear-gradient(to right, rgb(229, 242, 250), rgb(198, 238, 243));
+}
+
+.grid-column{
+
+    /* gird */
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:5px;
+
+    /* background-color: aqua; */
+
+
+    /* padding & margin */
+    margin:auto 0.5em;
+}
+
+.grid-column-content{
+    background-color:  var(--content-block-color);
+    border-radius: 10px;
+
+    position: relative;
+
+}
+
+.quantity-bubble{
+    position: absolute;
+    background-color: red;
+    border-radius: var(--bubble-size);
+    z-index: 1;
+    height: var(--bubble-size);
+    width: var(--bubble-size);
+    top: calc(-1*var(--bubble-size)*0.5);
+    left: calc(-1*var(--bubble-size)*0.2);
+
+    /* center item  */
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+}
+.content-block{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 60% auto;
+    grid-template-rows: 50% 50%;
+    align-items: center;
+
+
+}
+            .title{
+                grid-area:1/1/3/2;
+            }
+            .add{
+                grid-area:1/2/2/3;
+            }
+            .minus{
+                grid-area: 2/2/3/3;
+            }
+
+/* css for supplies section */
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+}
+.title>div{
+    text-align: center;
+    font-size: 1.5em;
+
+}
+
+.quant-change{
+    text-align: center;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.quant-change>span{
+    font-size: 1.5em;
+}
+
+.add{
+    background: linear-gradient(45deg,var(--content-block-color) 10%,rgb(214, 248, 223));
+}
+.minus{
+    background: linear-gradient(135deg,var(--content-block-color) 10%,rgb(245, 217, 210));
+}
+
+/******************
+*
+*   Timer Section
+*
+*******************/
+#overall{
+    margin: auto 5%;
+}
+#timers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    height:200px;
+}
+
+.timer-content{
+    display: grid;
+    grid-template-rows:30% 1fr 1fr;
+}

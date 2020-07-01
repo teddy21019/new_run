@@ -149,7 +149,7 @@ var app = new Vue({
     
 });
 
-
+/*
 function timeInterval(time1, time2) {
     //time = [12, 34, 56]
 
@@ -183,4 +183,4 @@ function timeArrayToStr(arr){
     arr =  arr.map(val=>val.toString().padStart(2, "0"));
     return `${arr[0]}:${arr[1]}:${arr[2]}`;
 }
-
+*/

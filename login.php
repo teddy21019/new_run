@@ -26,8 +26,17 @@ if(Input::exist('post')){
                     Session::set('user', 'recorder');
                     echo "RECORDER";
                     exit();
-                } else {
-                    Session::set('user', 'normal');         //3
+                } elseif($user->auth(User::SUPPLY)){
+                    Session::set('user', 'supply');         //3
+                    echo "SUPPLY";
+                    exit();
+                } elseif($user->auth(User::RIDE)){
+                    Session::set('user', 'ride');         //4
+                    echo "RIDE";
+                    exit();
+                }
+                else {
+                    Session::set('user', 'normal');         //xx
                     echo "NORMAL";
                     exit();
                 }
@@ -73,6 +82,9 @@ if(Input::exist('post')){
                         alert("密碼錯誤")
                     }else if(result == "RECORDER"){
                         window.location.href = "record.php";
+                    }else if(result == "SUPPLY"){
+                        window.location.href = "supply.php";
+
                     }else if(result == "NO_USER"){
                         $("#uid").addClass("error");
                         alert("無此帳號，請洽主辦單位");

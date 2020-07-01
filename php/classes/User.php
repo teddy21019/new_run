@@ -7,7 +7,8 @@ class User{
 
     const ADMIN     = 1;    //可操控主控台
     const RECORDER  = 2;    //可登記完賽
-    const NORMAL    = 3;    //補給站、繞行etc
+    const SUPPLY    = 4;    //補給站
+    const RIDE      = 5;    //繞行
 
     public function __construct($uid=null)
     {
