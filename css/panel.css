@@ -13,6 +13,9 @@ Table of Content
 
 Overall
     run_panel
+    record
+    notification
+    map
 
 Table
 Personnel
@@ -101,40 +104,71 @@ Contact
         padding-left:10px;
         grid-template-columns:80px auto;
         }
+    /****************************
+            record
+    *****************************/
+
+    #record{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        text-align: center ;
+        padding-top: 1em;
+    }
+    #record_msg_box{
+        background-color: rgba(0, 0, 0, 0.185);
+        width:max-content;
+        margin:3px auto;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 10px;
+    }
+
+    /****************************
+            Notification
+    *****************************/
+
+    #notification-section{
+        height:100%;
+        background-color:rgba(0, 0, 0, 0.548) ;
+        color: white;
+        overflow-y: scroll;
+    }
+
+    #notification-section>table{
+        width: 100%;
+    }
+    #notification-section th{
+        background-color: black;
+    }
+
+    .not-read{
+        background-color: chocolate;
+    }
 
 
+    /****************************
+            Map
+    *****************************/
 
 
-#record{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    text-align: center ;
-    padding-top: 1em;
-}
-#record_msg_box{
-    background-color: rgba(0, 0, 0, 0.185);
-    width:max-content;
-    margin:3px auto;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 10px;
-}
+    #map-block{
+        padding-top:10%;
+        padding-left: 2em;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
 
-#map{
-    padding-top:10%;
-    padding-left: 2em;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 3;
-
-}
-
-#map>img{
-    width: 80%;
-}
+    }
+    #map{
+        width:100%;
+        height:500px;
+    }
+    /* #map>img{
+        width: 80%;
+    } */
 /****************************
 
         Table
@@ -147,14 +181,19 @@ table{
 }
 
 th, td {
-    padding: 15px;
+    padding: 0.5em;
     text-align: left;
     border-bottom: 1px solid rgb(232, 234, 255);
+}
+th{
+    position: sticky;
+    top:0;
 }
 
 tbody tr:hover{
     background-color: rgb(220, 239, 247);
     cursor: pointer;
+    color:black
 }
 
 
@@ -181,7 +220,6 @@ tbody tr:hover{
 
 .form>form{
     padding-top: 2vh;    
-    position: fixed;
 
 }
 

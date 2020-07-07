@@ -28,5 +28,9 @@ class StaffGroup
         return $this->_db->select('position')->getResults();
     }
 
+    public function getPositionById($id){
+        return $this->_db->select('position',['id','=',$id])->firstResult();
+    }
+
 
 }
