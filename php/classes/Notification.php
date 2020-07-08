@@ -30,53 +30,56 @@ class Notification{
          *  message      string      {'':}
          */
         
-        $results = $this->_db->select('notification')->getResults();
-
+        $result = $this->_db->select('notification')->getResults();
         $toReturn = [];
 
         foreach($result as $key=>$value){
             $toPush = [];
-            $toPush['id'] = $result['id'];
-            $toPush['is_read'] = $result['is_read'];
+            $toPush['id'] = $value->id;
+            $toPush['is_read'] = $value->is_read;
 
             //  staff
                 //get name
-                $staff_id = $result['staff'];
-                $staff_name = Runner::singleton()->getFieldById('name',$staff_id);
-                $staff_tel = Runner::singleton()->getFieldById('tel',$staff_id);
-            $toPush['staff']=['id'=>$staff_id, 'name'=>$staff_name, 'tel'=>$staff_tel];
+                $staff_id = $value->staff;
+                $staff_name = Staff::singleton()->getFieldById('name',$staff_id);
+                $staff_tel = Staff::singleton()->getFieldById('tel',$staff_id);
+            $toPush['staff']=['orig'=>$staff_id, 'show'=>$staff_name, 'tel'=>$staff_tel];
 
             //position
                 //get position
-                $pos_id = $result['position'];
-                $pos_name = StaffGroup::singleton()->getPositionById($pos_id);
-            $toPush['position']=['id'=>$pos_id, 'name'=>$pos_name];
+                $pos_id = $value->position;
+                $pos_name = StaffGroup::singleton()->getPositionById($pos_id)->name;
+            $toPush['position']=['orig'=>$pos_id, 'show'=>$pos_name];
 
             // time
-                $orig_time = $result['time'];
+                $orig_time = $value->time;
                 $time_name = explode(' ',$orig_time)[1];
-            $toPush['time']=['orig'=>$orig_time, 'name'=>$time_name];
+            $toPush['time']=['orig'=>$orig_time, 'show'=>$time_name];
             
             //message
-                $message = $this->messageDecode($result['message']);
+                $message = $this->messageDecode($value->message);
+            $toPush['message']=['orig'=>$value->message, 'show'=>$message];
                 
-
+        $toReturn[]=$toPush;
 
         }
         
         //get id 
         
 
-        return $result;
+        return $toReturn;
 
 
          
     }
 
+    public function pushNotification($param){
+        $this->_db->insert('notification',$param);
+    }
 
     public function changeRead($id){
 
-        $result = $this->_db->update('notification',['is_read'],['id','=',$id]);
+        $result = $this->_db->update('notification',['is_read'=>'1'],['id','=',$id]);
 
     }
 
@@ -89,21 +92,29 @@ class Notification{
          *   "2":3
          *   },
          *   "MESSAGE":"謝謝"
-        *  }
+         * 
+         * Return : 補給：香蕉、水
          */
 
-         $message = [];
+         $message = '';
 
          //for each key
          if(isset($obj['SUPPLY'])){
              $supply_list = $obj['SUPPLY'];
+             $message.='物資：';
              foreach($supply_list as $id=>$q){
                 //get name of $supply's id
-                $name = Supply::singleton()->getFieldById('name', $id)
-                // $message[]getFieldById
-
-             }
-             
+                $name = Supply::singleton()->getFieldById('name', $id);
+                // $message[] getFieldById
+                $message .= $name.' ';
+             } 
+             $message.='。';
          }
+
+         if(isset($obj['MEDICAL'])){
+             $message.='傷患。';
+        }
+
+        return $message;
     }
 }

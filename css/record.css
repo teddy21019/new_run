@@ -45,7 +45,7 @@ span{
     font-size: 12px;
 
 }
-#but {
+#record_button {
     background-color:#bed8f5;
     -moz-border-radius:28px;
     -webkit-border-radius:28px;
@@ -60,14 +60,26 @@ span{
     text-decoration:none;
     text-shadow:0px 1px 0px #938cf8;
 }
-.myButton:hover {
+.record_button:hover {
     background-color:#5cbf2a;
 
 }
-.myButton:active {
+.record_button:active {
     position:relative;
     top:1px;
 
+}
+
+#record_msg_box{
+    background-color: rgba(0, 0, 0, 0.185);
+    width:max-content;
+    margin:3px auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+#record_msg{
+    font-size: large;
 }
 
 .logo{

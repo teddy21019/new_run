@@ -2,16 +2,18 @@
 require_once 'core/init.php';
 
 
-if(isset($_POST['action'])){
+var_dump (DB::singleton()->selectSeveral('runner',$order=['id'=>'A'])->getResults());
+
+// if(isset($_POST['action'])){
  
     
-    print_r(Runner::singleton()->search('測試')->getResults());
+//     print_r(Runner::singleton()->search('測試')->getResults());
 
-    $start_time = DB::singleton()->select('run_type', ['id','=',1])->firstResult()->start_time;
-    $start_time = strtotime($start_time);
-    echo($start_time);
-    exit();
-}
+//     $start_time = DB::singleton()->select('run_type', ['id','=',1])->firstResult()->start_time;
+//     $start_time = strtotime($start_time);
+//     echo($start_time);
+//     exit();
+// }
 
 
 // if (Input::exist()) {

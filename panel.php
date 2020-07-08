@@ -98,13 +98,13 @@ ob_start();
                 <tbody>
                     <tr v-for="data in notifications"
                         :class="{
-                            'not-read':!data.is_read,
+                            'not-read':data.is_read==false,
                         }" 
                         @click={notificationClicked(data)}   
                     >
-                        <td>{{data.time}}</td>
-                        <td>{{data.pos}}</td>
-                        <td>{{data.mes}}</td>
+                        <td>{{data.time.show}}</td>
+                        <td>{{data.position.show}}</td>
+                        <td>{{data.message.show}}</td>
                         </th>
                 </tbody>
             </table>

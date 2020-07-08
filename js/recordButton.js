@@ -6,7 +6,6 @@ $(document).ready(function(){
             'action':'record',
             'number': number
         }, function(result){
-            console.log(result);
             result = JSON.parse(result);
 
             let msg = result['msg'];

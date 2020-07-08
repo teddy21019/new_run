@@ -134,6 +134,9 @@ Contact
         background-color:rgba(0, 0, 0, 0.548) ;
         color: white;
         overflow-y: scroll;
+        overflow-x: scroll;
+
+
     }
 
     #notification-section>table{

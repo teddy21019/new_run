@@ -14,10 +14,11 @@ if(Input::exist('post')){
         $password =escape(Input::get('pwd'));
 
         $user = new User($uid);
-
+        $id = Staff::singleton()->getDataByUid($uid)->id;
         if ($user->exist()) {
             if ($user->login($password)) {
                 Session::set('uid', $uid);
+                Session::set('id', $id);
                 if ($user->auth(User::ADMIN)) {           //1
                     Session::set('user', 'admin');
                     echo "ADMIN";

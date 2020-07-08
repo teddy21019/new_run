@@ -24,7 +24,11 @@ let vSupply = new Vue({
                 name: "海綿",
                 count:0
             }
-        ]
+        ],
+        position:{
+            id:4,
+            name:'小台灣'
+        }
     },
     created() {
         bus.$on('countChange', (event) => {
@@ -38,19 +42,34 @@ let vSupply = new Vue({
 
         },
         send:function(){
-            let itemToSend = this.items.filter(item=>item['count']!==0)
-            itemToSend = itemToSend.map(item=>({
-                id:item.id,
-                count:item.count
-            }));
+            let itemToSend_array = this.items.filter(item=>item['count']!==0)
+
+            let itemToSend_Obj={};
+            itemToSend_array.forEach(item => {
+                itemToSend_Obj[item['id']]=item['count'];
+            });
+
+            
+
 
             //send to server
-            console.log(itemToSend);
+            let sendData = {
+                'action':'PUSH',
+                'position':this.position.id,
+                'message':JSON.stringify({
+                    'SUPPLY':itemToSend_Obj
+                }),
+            }
+            $.post('php/functions/notification.php',sendData,function(result){
+                if (result == 'SUCCESS'){
+                    vSupply.items.forEach(item => {
+                        item.count = 0;
+                    });
+                }
+            })
 
             //set all componet count to 0
-            this.items.forEach(item => {
-                item.count = 0;
-            });
+            
                             
         }
     },

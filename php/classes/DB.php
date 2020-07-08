@@ -181,6 +181,7 @@ class DB
             /**
              * 有排序 $order = ['type'=>A, 'number'=>D]<=依序由type, order 來排序...
              */
+            echo("order");
 
              $orderString = "";
              $i = 1;

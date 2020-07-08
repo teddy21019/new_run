@@ -21,6 +21,12 @@ class Staff{
         firstResult();
     }
 
+    public function getDataByUid($uid){
+        return $this->_db->
+        select('staff', ['uid','=',$uid])->
+        firstResult();
+    }
+
     public function getFieldById($field, $id){
         return $this->getDataById($id)->$field;
     }

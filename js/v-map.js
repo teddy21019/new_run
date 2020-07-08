@@ -9,7 +9,7 @@ let vMap = new Vue({
         zoom:14
     },
     mounted(){
-        // this.initMap();
+        this.initMap();
     },
     methods:{
         initMap(){

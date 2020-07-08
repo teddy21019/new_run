@@ -1,11 +1,31 @@
 <?php
 require_once("../core/init.php");
 
-if (Session::exist('user') && Session::get('user') == 'admin') {
+if (Session::exist('user')) {
     if (Input::exist()) {
 
         switch (Input::get('action')){
+            case 'PUSH':
+                try{
+                $id = Session::get('id');
+                $position = Input::get('position');
+                $now = new DateTime();
+                $message = Input::get('message');
 
+                Notification::singleton()->pushNotification(
+                    [
+                        'staff'=>$id,
+                        'time'=>$now->format('Y-m-d H:i:s'),
+                        'position'=>$position,
+                        'message'=>$message
+                    ]
+                );
+                echo('SUCCESS');
+                }catch(Exception $e){
+                    echo($e->getMessage);
+                }
+                
+            break;
             case 'PULL':
                 try{
                     $result = Notification::singleton()->getNotifications();

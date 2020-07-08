@@ -7,7 +7,7 @@ class Supply{
     private static $_instance = null;
 
     private function __construct(){
-        $_db = DB::singleton();
+        $this->_db = DB::singleton();
     }
 
     public function singleton(){
@@ -20,6 +20,6 @@ class Supply{
 
 
     public function getFieldById($field, $id){
-        return $this->_db->select('supply', ['id','=',$id])->firstResult()->$field;
+        return $this->_db->select('supplies', ['id','=',$id])->firstResult()->$field;
     }
 }

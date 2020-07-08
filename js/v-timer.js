@@ -42,7 +42,7 @@ Vue.component('timer',
                                 'type': id
                             },
                             function (result) {
-                                console.log(result);
+                                // console.log(result);
 
                                 if (result == "SUCCESS") {
                                     location.reload();
@@ -131,7 +131,7 @@ var app = new Vue({
                     newType.start_time = "";
                     newType.pass_time = "";
                 }
-                console.log(newType);   
+                // console.log(newType);   
                 app.run_types.push(newType);
 
                 //also change option in runner table
