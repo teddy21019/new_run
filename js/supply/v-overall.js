@@ -1,7 +1,10 @@
 let vOverall = new Vue({
     el: "#overall",
     data: {
-        supplySpot:'家裡',
+        position:{
+            'id':1,
+            'name':''
+        },
         now: null,
         run_types: [
             {
@@ -16,6 +19,7 @@ let vOverall = new Vue({
     },
     mounted() {
         this.timer();
+        this.getPosition();
     },
     methods: {
         timer() {
@@ -24,7 +28,12 @@ let vOverall = new Vue({
                 let now = new Date();
                 this.now = [now.getHours(), now.getMinutes(), now.getSeconds()];
             }.bind(this), 30);
-            console.log(this.now)
+        },
+        getPosition(){
+            $.post('php/functions/get_position.php',{'action':'get'},function(result){
+                result = JSON.parse(result);
+                vOverall.position = result;
+            })
         }
     },
     components: {

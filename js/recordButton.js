@@ -39,5 +39,7 @@ $(document).ready(function(){
 
 function showMessageInGreyBox(msg){
     $("#record_msg").text(msg);
-    $("#record_msg_box").animate({opacity:'100%'},500).delay(3000).animate({opacity:0},500)
+    $("#record_msg_box").animate({opacity:'100%'},500).delay(3000).animate({opacity:0},500);
+    $("#record_num").val('');
+
 }

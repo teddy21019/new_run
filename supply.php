@@ -76,7 +76,7 @@ require_once 'php/core/init.php';
         <h2>路跑總覽</h2>
         <div id="position">
             <div>
-                <h4>所屬補給站：<span>{{supplySpot}}</span></h4>
+                <h4>所屬補給站：<span>{{position.name}}</span></h4>
                 
             </div>
         </div>
