@@ -96,7 +96,7 @@ $(document).ready(function () {
             $(inputID).val(datas[i]);
         });
         //handle gender
-        let gender = (datas.pop() == "女") ? 0 : 1;
+        let gender = datas.pop()
         $("#r_gender").val(gender);
 
 

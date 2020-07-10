@@ -197,9 +197,36 @@ class RunType
 
     }
 
-    public function reRank()
+    /**
+     * 重新排序
+     * 
+     * 根據性別排序
+     */
+    public function reRank($gender)
     {
-        //
+        $results = $this->_db->query(
+            "SELECT `id`, `run_time` FROM runner WHERE `gender`=? and `run_type`= ? "
+            ,[$gender, $this->_typeID])->getResults();        
+
+        //change time string to seconds in able to rank;
+        $comparableResult = [];
+        foreach($results as $result){
+            if(isset($result->run_time)){
+                $id = $result->id;
+                $timeArr = explode(":",$result->run_time);
+                $second = 60*$timeArr[0]+60*$timeArr[1]+$timeArr[2];
+                $comparableResult[$id]=$second;        
+            }
+        }
+
+        //sort by php 
+        asort($comparableResult);
+
+        
+
+        
     }
+
+
 
 }

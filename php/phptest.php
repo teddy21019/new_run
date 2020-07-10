@@ -1,8 +1,8 @@
 <?php
 require_once 'core/init.php';
 
-
-var_dump (DB::singleton()->select('runner',$condition = array(),$fields = array('name','tel'))->getResults());
+$d = new RunType(1);
+$d->reRank(1);
 
 // if(isset($_POST['action'])){
  

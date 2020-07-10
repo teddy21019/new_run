@@ -141,7 +141,7 @@ function fetchStaff(txt){
                 let position = positions[staff["position"]];
                 let name = staff["name"];
                 let tel = staff["tel"];
-                console.log(staff_type);
+                // console.log(staff_type);
                 
                 let appendHTML =`
                 <tr id="${id}">
