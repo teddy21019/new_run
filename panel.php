@@ -62,6 +62,7 @@ ob_start();
     <span>路跑管理系統</span>
     <ul>
         <li class id="li_overall"><a href="#">總覽</a></li>
+        <li class id="li_rank"><a href="#">名次</a></li>
         <li class id="li_staff"><a href="#">工人</a></li>
         <li class id="li_runner"><a href="#">跑者</a></li>
         <li class id="li_contact"><a href="#">通訊錄</a></li>
@@ -116,6 +117,15 @@ ob_start();
             <div id="map">
             </div>
         </div>
+    </div>
+    <div id="rank">
+    <h1>名次總覽</h1>
+    <div id="rank-container">
+        <button @click="getRankData()">重新整理</button>
+        <button @click="recalculateRank()">重新計算</button>
+
+        
+    </div>
     </div>
     <div id="staff" class="grid">
         <div class="data">
@@ -305,6 +315,8 @@ ob_start();
 <script src="js/v-timer.js"></script>
 <script src="js/v-map.js"></script>
 <script src="js/v-notification.js"></script>
+<script src="js/v-rank.js"></script>
+
 
 
 

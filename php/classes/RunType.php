@@ -197,7 +197,7 @@ class RunType
 
     }
 
-    public function rank()
+    public function reRank()
     {
         //
     }

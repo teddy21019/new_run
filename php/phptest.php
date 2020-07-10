@@ -2,7 +2,7 @@
 require_once 'core/init.php';
 
 
-var_dump (DB::singleton()->selectSeveral('runner',$order=['id'=>'A'])->getResults());
+var_dump (DB::singleton()->select('runner',$condition = array(),$fields = array('name','tel'))->getResults());
 
 // if(isset($_POST['action'])){
  

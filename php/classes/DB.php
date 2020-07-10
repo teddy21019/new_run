@@ -130,12 +130,22 @@ class DB
      * 
      * 目前只有一個搜尋條件，要很多個你自己寫
      */
-    public function select($table, $condition = array())
+    public function select($table, $condition = array(), $fields = array())
     {    //condition = array('id','=','10')
         // get '=', '>', '<'
+        //fields = ['name', 'id']
+        $fieldTxt = '';
+        if(!empty($fields)){
+            foreach($fields as $field){
+                $fieldTxt .= $field.",";
+            }
+            $fieldTxt=rtrim($fieldTxt,',');
+        }else{
+            $fieldTxt = "*";
+        }
 
         if (empty($condition)) {
-            return $this->query("SELECT * FROM `${table}`");
+            return $this->query("SELECT ${fieldTxt} FROM `${table}`");
 
         } else {
 
@@ -145,7 +155,7 @@ class DB
                 return false;
             } 
             $param = $condition[2];
-            return $this->query("SELECT * FROM `${table}` WHERE ${conditionString}", array($param));
+            return $this->query("SELECT ${fieldTxt} FROM `${table}` WHERE ${conditionString}", array($param));
 
         }
 
