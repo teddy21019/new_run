@@ -222,7 +222,18 @@ class RunType
         //sort by php 
         asort($comparableResult);
 
+        //rank-id array
+        $rankIdArr = [];
+        $i=1;
+        foreach($comparableResult as $key=>$value){
+            $rankIdArr[$i++]=$key;
+        }
         
+        foreach($rankIdArr as $rank=>$runner_id){
+            $this->_db->update('runner', $param=['rank'=>$rank], $condition=['id','=',$runner_id]);
+        }
+
+
 
         
     }
