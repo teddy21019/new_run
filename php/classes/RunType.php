@@ -233,9 +233,21 @@ class RunType
             $this->_db->update('runner', $param=['rank'=>$rank], $condition=['id','=',$runner_id]);
         }
 
+    }
 
 
+    public function getRankData($gender){
+
+
+        $typeId = $this->_typeID;
+        $result = $this->_db->query(
+        "SELECT * FROM runner WHERE `run_type`= ${typeId} and `gender`=${gender} and `altered`=1 ORDER BY `rank` ASC"
+        )->getResults();
+
+        return $result;
         
+        // print_r($result);
+
     }
 
 

@@ -2,7 +2,7 @@
 require_once 'core/init.php';
 
 $d = new RunType(1);
-$d->reRank(0);
+$d->getRankData(1);
 
 // if(isset($_POST['action'])){
  

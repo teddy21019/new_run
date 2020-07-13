@@ -53,6 +53,32 @@ ob_start();
     </div>
 </script>
 
+<script type="text/x-template" id="rank-template">
+    <div class="rank-runtype">
+        <h3>{{typeName}}{{gender}}</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>名次</th>
+                    <th>姓名</th>
+                    <th>背號</th>
+                    <th>時間</th>
+            </tr></thead>
+            <tbody>
+                <tr v-for="data in datas">
+                    <td>{{data.rank}}</td>
+                    <td>{{data.name}}</td>
+                    <td>{{data.number}}</td>
+                    <td>{{data.time}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</script>
+
+
+    
+
 
 
 <body>
@@ -119,13 +145,15 @@ ob_start();
         </div>
     </div>
     <div id="rank">
-    <h1>名次總覽</h1>
-    <div id="rank-container">
-        <button @click="getRankData()">重新整理</button>
-        <button @click="recalculateRank()">重新計算</button>
-
-        
-    </div>
+        <h1>名次總覽</h1>
+        <button @click="recalculateRank()">重新整理</button>
+        <div id="rank-container" >
+            <rank v-for="type in ranks"
+            :type-name="type.typeName"
+            :gender="type.gender"
+            :datas="type.data">
+            </rank> 
+        </div>
     </div>
     <div id="staff" class="grid">
         <div class="data">

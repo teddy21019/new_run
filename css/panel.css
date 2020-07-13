@@ -18,7 +18,8 @@ Overall
     map
 
 Table
-Personnel
+Rank
+Staff
 Runner
 Contact
 
@@ -199,7 +200,24 @@ tbody tr:hover{
     color:black
 }
 
+/****************************
 
+        Rank
+
+*****************************/
+
+
+#rank-container{
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    overflow-x: scroll;
+}
+
+.rank-runtype{
+    margin:10px;
+}
 
 
 /****************************
