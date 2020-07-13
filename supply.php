@@ -47,7 +47,7 @@ require_once 'php/core/init.php';
     </div>
 </script>
 
-<?php if (Session::get('user')=='supply'){?>
+<?php if (Session::get('user')=='supply' || Session::get('user')=='ride'){?>
 <body>
     <div class="sidebar">
         <img src="logo.png" id="sidebar-logo">

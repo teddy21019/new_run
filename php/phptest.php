@@ -1,8 +1,10 @@
 <?php
 require_once 'core/init.php';
 
-$d = new RunType(1);
-$d->getRankData(1);
+$hash = password_hash(12345, PASSWORD_DEFAULT);
+print_r($hash);
+print_r('<br>');
+print_r(password_verify(12345, $hash));
 
 // if(isset($_POST['action'])){
  

@@ -98,7 +98,7 @@ if(Session::exist('user')){
                 //hash password
                 $toUpdate = $_POST;
                 if(!empty($_POST['new_pwd'])){
-                    $toUpdate['password'] = password_hash($_POST['new_pwd'], PASSWORD_DEFAULT);
+                    $toUpdate['password'] = password_hash(Input::get('new_pwd'), PASSWORD_DEFAULT);
                 }
                 $id = Input::get('id');
                 
@@ -162,7 +162,8 @@ if(Session::exist('user')){
                 $s = Staff::singleton();
                 $toInsert = $_POST;
                 //hash password 
-                $toInsert['password'] = password_hash(Input::get('pwd'), PASSWORD_DEFAULT);
+                // echo ("PWD=".Input::get('new_pwd'));
+                $toInsert['password'] = password_hash(Input::get('new_pwd'), PASSWORD_DEFAULT);
                 unset($toInsert['new_pwd']);
 
                 $s->add($toInsert);

@@ -83,9 +83,8 @@ if(Input::exist('post')){
                         alert("密碼錯誤")
                     }else if(result == "RECORDER"){
                         window.location.href = "record.php";
-                    }else if(result == "SUPPLY"){
+                    }else if(result == "SUPPLY" || result == "RIDE"){
                         window.location.href = "supply.php";
-
                     }else if(result == "NO_USER"){
                         $("#uid").addClass("error");
                         alert("無此帳號，請洽主辦單位");
