@@ -91,7 +91,7 @@ ob_start();
         <li class id="li_rank"><a href="#">名次</a></li>
         <li class id="li_staff"><a href="#">工人</a></li>
         <li class id="li_runner"><a href="#">跑者</a></li>
-        <li class id="li_contact"><a href="#">通訊錄</a></li>
+        <!-- <li class id="li_contact"><a href="#">通訊錄</a></li> -->
         <li class id="li_logout"><a href="php/logout.php">登出</a></li>
 
     </ul>

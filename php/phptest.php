@@ -1,10 +1,8 @@
 <?php
 require_once 'core/init.php';
 
-$hash = password_hash(12345, PASSWORD_DEFAULT);
-print_r($hash);
-print_r('<br>');
-print_r(password_verify(12345, $hash));
+
+print_r(password_verify('', '$2y$10$UFcSwbhCddClbZYX2fkLXeRkzBYgHMeWuQgyH5ClVkHPl79BXSk2m'));
 
 // if(isset($_POST['action'])){
  

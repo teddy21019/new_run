@@ -55,7 +55,7 @@ let vSupply = new Vue({
             //send to server
             let sendData = {
                 'action':'PUSH',
-                'position':this.position.id,
+                'position':vOverall.position.id,
                 'message':JSON.stringify({
                     'SUPPLY':itemToSend_Obj
                 }),
