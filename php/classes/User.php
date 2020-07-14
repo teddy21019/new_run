@@ -32,6 +32,10 @@ class User{
         }
     }
 
+    public function getUid(){
+        return $this->_uid;
+    }
+
     public function auth($authType){
         if($this->_staffData->staff_type == $authType){
             return true;

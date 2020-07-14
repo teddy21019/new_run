@@ -14,8 +14,10 @@ if(Input::exist('post')){
         $password =escape(Input::get('pwd'));
 
         $user = new User($uid);
-        $id = Staff::singleton()->getDataByUid($uid)->id;
         if ($user->exist()) {
+            // echo "user exist";
+            $uid = $user->getUid(); //consider when login with tel
+            $id = Staff::singleton()->getDataByUid($uid)->id;
             if ($user->login($password)) {
                 Session::set('uid', $uid);
                 Session::set('id', $id);
