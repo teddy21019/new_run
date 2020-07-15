@@ -72,7 +72,7 @@ Contact
 
         .timer_left {
         height:100%;
-        background-color: rgb(160, 228, 245);
+        background-color: rgb(255, 179, 52);
         text-align: center;
         display: grid;
         grid-template-rows: 3fr 2fr
