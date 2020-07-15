@@ -56,10 +56,10 @@ Contact
     }
 
     #app>.timer-grid:nth-child(even){
-        background-color: rgba(127, 255, 212, 0.11);
+        background-color: rgba(255, 255, 142, 0.14);
     }
     #app>.timer-grid:nth-child(odd){
-        background-color: rgba(68, 176, 209, 0.11);
+        background-color: rgba(255, 141, 9, 0.11);
     }
     
     .timer-grid {

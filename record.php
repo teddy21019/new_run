@@ -8,6 +8,7 @@ require_once 'php/core/init.php';
         <title>路跑手動登錄系統</title>
         <meta name="viewport" content="width=device-width, height=device-height initial-scale=1"/>
         <link rel="stylesheet" type="text/css" media="screen" href="css/record.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="js/recordButton.js"></script>
         <script>
