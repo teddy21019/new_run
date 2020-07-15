@@ -130,9 +130,10 @@ button{
 *   Timer Section
 *
 *******************/
-#overall{
+/* #overall{
     margin: auto 5%;
-}
+} */
+
 #timers{
     display: flex;
     flex-direction: row;

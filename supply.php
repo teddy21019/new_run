@@ -58,30 +58,32 @@ require_once 'php/core/init.php';
             <li> <a href="php/logout.php">登出</a> </li>
         </ul>
     </div>
-    <div class="main" id="app">
-        <div>
-            <div class="supply-title">
-                <div>
-                    <h2>物資需求</h2>
-                </div>
-                <div id="send-supply"> <button @click="send">送出</button></div>
-            </div>
-            <div class="grid-column" >
-                <!-- 從伺服器抓資料，主會場可編輯名單 -->
-                <item v-for="item in items" :item="item"></item>
-            </div>
-        </div>
-    </div>
-    <div class="overall" id="overall">
-        <h2>路跑總覽</h2>
-        <div id="position">
+    <div class="main">
+        <div id="app">
             <div>
-                <h4>所屬補給站：<span>{{position.name}}</span></h4>
-                
+                <div class="supply-title">
+                    <div>
+                        <h2>物資需求</h2>
+                    </div>
+                    <div id="send-supply"> <button @click="send">送出</button></div>
+                </div>
+                <div class="grid-column" >
+                    <!-- 從伺服器抓資料，主會場可編輯名單 -->
+                    <item v-for="item in items" :item="item"></item>
+                </div>
             </div>
         </div>
-        <div id="timers">
-            <timer v-for="type in run_types" :run_type="type" :now="now"></timer>
+        <div class="overall" id="overall">
+            <h2>路跑總覽</h2>
+            <div id="position">
+                <div>
+                    <h4>所屬補給站：<span>{{position.name}}</span></h4>
+                    
+                </div>
+            </div>
+            <div id="timers">
+                <timer v-for="type in run_types" :run_type="type" :now="now"></timer>
+            </div>
         </div>
     </div>
 

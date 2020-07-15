@@ -9,6 +9,7 @@ if (Session::exist('user')) {
                 try{
                 $id = Session::get('id');
                 $position = Input::get('position');
+                
                 $now = new DateTime();
                 $message = Input::get('message');
 
