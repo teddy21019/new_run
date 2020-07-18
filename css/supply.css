@@ -90,14 +90,21 @@ button{
 /* css for supplies section */
 .title{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     max-width: 100%;
+    position: relative;
 }
 .title>div{
     text-align: center;
     font-size: 1.5em;
+}
 
+.title>span{
+    position: absolute;
+    bottom: 0;
+    right:0;
+    font-size: x-small;
 }
 
 .quant-change{

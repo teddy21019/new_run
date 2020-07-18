@@ -164,7 +164,7 @@ function fetchStaff(txt){
 function fetchStaffInfo(){
     //get staff type & staff group
     $.post("php/functions/get_staff_info.php",
-    {'action':1},
+    {'action':'panel'},
     function(result){
         let jsonResult = JSON.parse(result);
         /**

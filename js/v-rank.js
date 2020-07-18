@@ -9,8 +9,12 @@ let vRank = new Vue({
     methods:{
         getRankData(){
             $.post('php/functions/get_rank.php',{'action':'get'},function(result){
-                result = JSON.parse(result);
-                vRank.ranks = result;
+                if(result == 'EMPTY'){
+
+                }else{
+                    result = JSON.parse(result);
+                    vRank.ranks = result;
+                }
             })
         },
         recalculateRank(){

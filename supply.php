@@ -24,7 +24,7 @@ require_once 'php/core/init.php';
             <div style="color:white">{{count}}</div>
         </div>
         <div class="content-block">
-            <div class="title"><div>{{name}}</div></div>
+            <div class="title"><div>{{name}}</div> <span>{{unit}}</span></div>
             <div @click="add" class="quant-change add" > <span>+</span></div>
             <div @click="minus" class="quant-change minus"><span>-</span></div>
         </div>

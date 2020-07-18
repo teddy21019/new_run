@@ -2,7 +2,7 @@
 require_once("../core/init.php");
 
 if(Session::get('user')=='admin'){
-    if(Input::exist()){
+    if(Input::get('action')=='panel'){
         $staff_type = [];
         $position= [];
     
@@ -18,6 +18,10 @@ if(Session::get('user')=='admin'){
             $position[$value->id] = $value->name;
         }
         echo json_encode(array($staff_type, $position), JSON_UNESCAPED_UNICODE);
+    }elseif(Input::get('action')=='all_position_info'){
+        $position_org = StaffGroup::singleton()->getPositions();
+        echo json_encode($position_org);
+
     }
 }else{
     echo "404";

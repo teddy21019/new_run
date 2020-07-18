@@ -13,7 +13,9 @@ ob_start();
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/sidebar.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTjZ3TVlMlS1qet1-hCioKdBuInaY4IWc">
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTjZ3TVlMlS1qet1-hCioKdBuInaY4IWc">
+    </script> -->
+    <script src="https://maps.googleapis.com/maps/api/js">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <script src="js/functions/function.js"></script>
@@ -139,7 +141,22 @@ ob_start();
 
         <!-- vue -->
         <div id="map-block">
-            <div id="map-information"></div>
+            <div v-show="false" id="map-information">
+                <div class="info-bubble">
+                    <h3>{{infoWindowContent.position}}</h3>
+                    <div class="staffInfo">
+                        <h4>{{infoWindowContent.staffName}}</h4>
+                        <p>{{infoWindowContent.staffTel}}</p>
+                    </div>
+                    <h4>{{infoWindowContent.needTitle}}</h4>
+                    <div id="needs">
+                        <div v-if="infoWindowContent.needs!=null" 
+                        v-for="need in infoWindowContent.needs">
+                            <p>{{need.name}}：{{need.quantity}}{{need.unit}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div id="map">
             </div>
         </div>

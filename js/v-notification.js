@@ -43,7 +43,7 @@ let vNotification = new Vue({
 
             })
         },
-        changeRead(id){
+        changeRead({id}){
             // this.notifications.find(n=>n.id==id)['is_read']= true;
             $.post(
                 notificationURL,
@@ -63,7 +63,8 @@ let vNotification = new Vue({
             
         },
         notificationClicked(data){
-            this.changeRead(data.id);
+            vMap.showInfo(data);
+            this.changeRead(data);
 
         }
     }

@@ -22,4 +22,8 @@ class Supply{
     public function getFieldById($field, $id){
         return $this->_db->select('supplies', ['id','=',$id])->firstResult()->$field;
     }
+
+    public function getAll(){
+        return $this->_db->select('supplies')->getResults();
+    }
 }

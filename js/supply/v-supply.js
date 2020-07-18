@@ -2,29 +2,7 @@ let bus = new Vue();
 let vSupply = new Vue({
     el: "#app",
     data: {
-        items: [
-            {
-                id: 1,
-                name: "水",
-                count:0
-            }, {
-                id: 2,
-                name: "舒跑",
-                count:0
-            }, {
-                id: 3,
-                name: "杯子",
-                count:0
-            }, {
-                id: 4,
-                name: "香蕉",
-                count:0
-            }, {
-                id: 5,
-                name: "海綿",
-                count:0
-            }
-        ],
+        items: [],
         position:{
             id:4,
             name:'小台灣'
@@ -35,7 +13,24 @@ let vSupply = new Vue({
             this.changeCount(event);
         })
     },
+    mounted(){
+        this.fetchSupplies();
+    },
     methods: {
+        fetchSupplies(){
+            $.post('php/functions/get_supply.php',{action:'1'},function(result){
+                result = JSON.parse(result);
+                console.log(result);
+
+                //add count property for each 
+
+                Object.keys(result).forEach(i=>{
+                    result[i].count=0;
+                })
+
+                vSupply.items = result;
+            })
+        },
         changeCount: function (d) {
             let id = d.id;
             this.items.find(item => item.id === id).count = d.count;
@@ -87,6 +82,9 @@ let vSupply = new Vue({
                 },
                 count:function(){
                     return this.item.count;
+                },
+                unit: function(){
+                    return this.item.unit;
                 }
 
             },
