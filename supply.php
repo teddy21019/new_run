@@ -12,6 +12,7 @@ require_once 'php/core/init.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <script src="js/functions/function.js"></script>
+    <script src="js/tab.js"></script>
 
     <title>路跑補給系統</title>
     <style></style>
@@ -54,37 +55,71 @@ require_once 'php/core/init.php';
         <img src="logo.png" id="sidebar-logo">
         <div><span>路跑補給系統</span></div>
         <ul>
-            <li> <a href="#">主畫面</a>  </li>
-            <li> <a href="#">設定</a> </li>
+            <li id="li_main"> <a href="#">主畫面</a>  </li>
+            <li id="li_setting"> <a href="#">設定</a> </li>
             <li> <a href="php/logout.php">登出</a> </li>
         </ul>
     </div>
     <div class="main">
-        <div id="app">
-            <div>
-                <div class="supply-title">
-                    <div>
-                        <h2>物資需求</h2>
+        <div id="main">
+            <div id="app">
+                <div>
+                    <div class="supply-title">
+                        <div>
+                            <h2>物資需求</h2>
+                        </div>
+                        <div id="send-supply"> <button @click="send">送出</button></div>
                     </div>
-                    <div id="send-supply"> <button @click="send">送出</button></div>
+                    <div class="grid-column" >
+                        <!-- 從伺服器抓資料，主會場可編輯名單 -->
+                        <item v-for="item in items" :item="item"></item>
+                    </div>
                 </div>
-                <div class="grid-column" >
-                    <!-- 從伺服器抓資料，主會場可編輯名單 -->
-                    <item v-for="item in items" :item="item"></item>
+            </div>
+            <div class="overall" id="overall">
+                <h2>路跑總覽</h2>
+                <div id="position">
+                    <div>
+                        <h4>所屬補給站：<span>{{position.name}}</span></h4>
+                        
+                    </div>
+                </div>
+                <div id="timers">
+                    <timer v-for="type in run_types" :run_type="type" :now="now"></timer>
                 </div>
             </div>
         </div>
-        <div class="overall" id="overall">
-            <h2>路跑總覽</h2>
-            <div id="position">
+        <div id="setting">
+            <h1>帳號設定</h1>
+            <form autocomplete="off">
+                <input type="hidden" id="s_id" name="id" value="">
+                <input id="s_action" type="hidden" name="action" value="">
                 <div>
-                    <h4>所屬補給站：<span>{{position.name}}</span></h4>
-                    
+                    <label for="name">姓名</label>
+                    <input autocomplete="off" type="text" name="name" id="s_name">
                 </div>
-            </div>
-            <div id="timers">
-                <timer v-for="type in run_types" :run_type="type" :now="now"></timer>
-            </div>
+                <div>
+                    <label for="name">帳號</label>
+                    <input autocomplete="off" type="text" name="uid" id="s_uid">
+                </div>
+                <div>
+                    <label for="position">地點</label>
+                    <select name="position" id="s_position">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div>
+                    <label for="tel">手機</label>
+                    <input autocomplete="off" type="tel" name="tel" id="s_tel">
+                </div>
+                <div>
+                    <label for="password">密碼</label>
+                    <input autocomplete="off" type="text" style="text-security:disc; -webkit-text-security:disc;"
+                        name="new_pwd" id="s_new_pwd">
+
+                </div>
+                <button id="s_update" type="submit" value="update">更新</button>
+            </form>
         </div>
     </div>
 

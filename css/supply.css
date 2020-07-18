@@ -1,13 +1,13 @@
 :root{
-    --content-block-color:rgba(210, 239, 252,0.2);
+    --content-block-color:rgba(252, 237, 210, 0.2);
     --bubble-size:25px;
 }
 
 html{
-    background: center fixed;
+    /* background: center fixed;
     background-image:linear-gradient(0deg,  #fdca57,#fff4d5);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     min-height: 100%;
 }
 .supply-title{
@@ -27,7 +27,7 @@ button{
     width:70px;
     border-radius: 10px;
     border-width: thin;
-    background: linear-gradient(to right, rgb(229, 242, 250), rgb(198, 238, 243));
+    /* background: linear-gradient(to right, rgb(229, 242, 250), rgb(198, 238, 243)); */
 }
 
 .grid-column{
@@ -71,7 +71,7 @@ button{
 .content-block{
     display: grid;
     height: 100%;
-    grid-template-columns: 60% auto;
+    grid-template-columns: 75% auto;
     grid-template-rows: 50% 50%;
     align-items: center;
 

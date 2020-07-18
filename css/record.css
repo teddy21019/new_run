@@ -6,9 +6,16 @@ html{
     min-height: 100%;
 }
 
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .center {
     position: absolute;
-    margin: auto;
+    margin: 0 auto;
+    margin-top: var(--nav-height);
     top: 0;
     right: 0;
     bottom: 0;
@@ -50,7 +57,7 @@ span{
     -moz-border-radius:28px;
     -webkit-border-radius:28px;
     border-radius:28px;
-    border:1px solid #3662f3;
+    border:1px solid #f39b36;
     display:inline-block;
     cursor:pointer;
     color:#000000;
