@@ -2,11 +2,11 @@
     --nav-width:150px;
     --nav-li-height:40px;
 
-    --nav-bgcolor:rgb(247, 166, 47);
-    --nav-bghover:rgb(216, 121, 4);
-    --nav-bgactive:rgb(254, 229, 168);
-    --nav-text-clr:white;
-    --nav-text-clr-active:black;
+    --nav-bgcolor:rgb(255, 242, 191);
+    --nav-bghover:rgb(253, 250, 240);
+    --nav-bgactive:rgb(255, 157, 139);
+    --nav-text-clr:black;
+    --nav-text-clr-active:rgb(32, 32, 32);
 }
 
 
