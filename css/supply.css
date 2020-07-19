@@ -94,6 +94,7 @@ button{
     align-items: center;
     max-width: 100%;
     position: relative;
+    padding-left: 10%;
 }
 .title>div{
     text-align: center;
@@ -103,7 +104,7 @@ button{
 .title>span{
     position: absolute;
     bottom: 0;
-    right:0;
+    right:10px;
     font-size: x-small;
 }
 
@@ -123,6 +124,16 @@ button{
 }
 .minus{
     background: linear-gradient(135deg,var(--content-block-color) 10%,rgb(245, 217, 210));
+}
+
+#request-EMT{
+    margin-top: 5%;
+}
+
+#request-EMT>button{
+    width: max-content;
+    font-size: 1.5em;
+
 }
 
 /******************

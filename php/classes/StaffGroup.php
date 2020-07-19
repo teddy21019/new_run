@@ -25,7 +25,7 @@ class StaffGroup
     }
 
     public function getPositions(){
-        return $this->_db->select('position')->getResults();
+        return $this->_db->select('position', $condition=['run_type','=',0])->getResults();
     }
 
     public function getPositionById($id){

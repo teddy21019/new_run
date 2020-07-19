@@ -6,22 +6,28 @@ let vOverall = new Vue({
             'name':''
         },
         now: null,
-        run_types: [
-            {
-                name: "挑戰組",
-                start_time: "10:32:23"
-            },
-            {
-                name: "樂活組",
-                start_time: "00:01:23"
-            }
-        ]
+        run_types: [],
+        positionText : "所屬補給站"
     },
-    mounted() {
+    async mounted() {
+        this.run_types = await this.getRunInfo();
         this.timer();
         this.getPosition();
     },
     methods: {
+        getRunInfo(){
+            return new Promise(function(resolve){
+                $.post('php/functions/get_run_type.php',{action:'started'},function(result){
+                    result = JSON.parse(result)
+                    result.forEach(rt => {
+                        rt.start_time = rt.start_time.split(" ")[1];
+                    });
+                    resolve(result);
+                })
+
+            })
+
+        },
         timer() {
             // const self=this;
             setInterval(function () {

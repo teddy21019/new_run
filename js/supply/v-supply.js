@@ -36,13 +36,18 @@ let vSupply = new Vue({
             this.items.find(item => item.id === id).count = d.count;
 
         },
-        send:function(){
+        sendSupply:function(){
             let itemToSend_array = this.items.filter(item=>item['count']!==0)
 
             let itemToSend_Obj={};
+            
+            if(itemToSend_array.length==0){
+                return;
+            }
             itemToSend_array.forEach(item => {
                 itemToSend_Obj[item['id']]=item['count'];
             });
+
 
             
 
@@ -66,6 +71,21 @@ let vSupply = new Vue({
             //set all componet count to 0
             
                             
+        },
+        sendEMT(){
+            let sendData = {
+                'action':'PUSH',
+                'position':vOverall.position.id,
+                'message':JSON.stringify({
+                    'MEDICAL':'1'
+                }),
+            }
+
+            if(confirm('確定請求救護人員？'))
+            $.post('php/functions/notification.php',sendData).then(()=>{
+                alert("已提出申請！")
+            })
+
         }
     },
     components: {

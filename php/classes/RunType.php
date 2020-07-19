@@ -40,6 +40,10 @@ class RunType
         }
     }
 
+    public function getStarted(){
+        return $this->_db->select('run_type', $condition=['started','=',1], $fields=[])->getResults();
+    }
+
     private function exist($id)
     {
         /**

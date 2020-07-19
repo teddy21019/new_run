@@ -56,31 +56,44 @@ require_once 'php/core/init.php';
         <div><span>路跑補給系統</span></div>
         <ul>
             <li id="li_main"> <a href="#">主畫面</a>  </li>
-            <li id="li_setting"> <a href="#">設定</a> </li>
+            <!-- <li id="li_setting"> <a href="#">設定</a> </li> -->
             <li> <a href="php/logout.php">登出</a> </li>
         </ul>
     </div>
     <div class="main">
         <div id="main">
             <div id="app">
-                <div>
+                <div class="supply-section">
                     <div class="supply-title">
                         <div>
                             <h2>物資需求</h2>
                         </div>
-                        <div id="send-supply"> <button @click="send">送出</button></div>
+                        <div id="send-supply"> <button @click="sendSupply">送出</button></div>
                     </div>
                     <div class="grid-column" >
                         <!-- 從伺服器抓資料，主會場可編輯名單 -->
                         <item v-for="item in items" :item="item"></item>
                     </div>
                 </div>
+                <div class="medical-section">
+                    <div id="request-EMT"> 
+                        <h2>急救</h2>
+                        <p>請求EMT支援，派遣最近的救護人員支援</p>
+                        <button @click="sendEMT">
+                            <div style="display:inline-block">
+                                <img src="assets/icons/emt.png"> 
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
             </div>
+
             <div class="overall" id="overall">
                 <h2>路跑總覽</h2>
                 <div id="position">
                     <div>
-                        <h4>所屬補給站：<span>{{position.name}}</span></h4>
+                        <h4>{{positionText}}：<span>{{position.name}}</span></h4>
                         
                     </div>
                 </div>
