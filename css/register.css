@@ -1,0 +1,98 @@
+body{
+    /* height: 100%; */
+    width: 100%;
+    font-size: larger;
+}
+
+#box-section{
+    margin: 10vh auto;
+    padding-top: 1px;
+}
+
+
+
+
+.slidebox{
+    position: relative;;
+    margin: 20px 30px 20px 30px;
+    padding-top: 1px;
+    height: 60vh;
+    /* border-style: ridge;
+    /* border-width:1px; */
+    /* border-color: black;  */
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    ;
+}
+    .slidebox>h1{
+        text-align: center;
+        padding-top: 1px;
+        margin-top: 30px;
+    }
+
+    .slidebox>.input{
+        margin-top: 30%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .slidebox>.uid-input{
+        margin-top: 10%;
+    }
+    .error{
+        border-style: solid;
+        border-color: red;
+        border-width: 2px;
+    }
+
+    .slidebox input, .slidebox>select{
+        width: 75%;
+        height: 40px;
+        font-size: larger;
+    }
+
+    .explain{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .explain>p{
+        width: 75%;
+    }
+
+    .slidebox>.right-bot{
+        position: absolute;
+        bottom: 10px;
+        right:10px;
+        font-size: larger;
+    }
+    .slidebox>.left-bot{
+        position: absolute;
+        bottom: 10px;
+        left:10px;
+        font-size: larger;
+    }
+    #position{
+        width: 75%;
+        height:40px;
+        background:linear-gradient(21deg, #fbfbfb, #fff2dc);
+        border-style: none;
+    }
+
+
+#step-row{
+    display: flex;
+    flex-direction: row;
+    margin:0 auto;
+    width: min-content;
+
+}
+.step{
+    height:10px;
+    width: 10px;
+    border-radius: 5px;
+    background-color: khaki;
+}
+.on-step{
+    background-color: black;
+}

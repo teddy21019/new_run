@@ -3,7 +3,8 @@ require_once("../core/init.php");
 
 $returnData=[];
 
-if(Session::exist('user')){
+if(Session::exist('user') || Input::get('source')=='register.html'){
+    unset($_POST['source']);
     if(Input::exist()){
         /****************************
          * 

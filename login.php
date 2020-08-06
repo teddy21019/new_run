@@ -110,7 +110,7 @@ if(Input::exist('post')){
     <div class="center-item login">
         <div class="mid">
             <img src="logo.png" class="logo">
-            <h2>管理員登入</h2>
+            <h2>工作人員登入</h2>
         </div>
 
         <form action="" method="post">

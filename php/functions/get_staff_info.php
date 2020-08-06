@@ -24,5 +24,10 @@ if(Session::get('user')=='admin'){
 
     }
 }else{
-    echo "404";
+    if(Input::get('action')=='all_position_info'){
+        $position_org = StaffGroup::singleton()->getPositions();
+        echo json_encode($position_org);
+    }else{
+        echo "404";
+    }
 }

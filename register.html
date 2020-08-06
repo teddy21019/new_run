@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>路跑註冊系統</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/register.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/register/register.js"></script>
+</head>
+
+<body>
+    <!-- 名稱 -->
+    <div id="box-section">
+        <div class="slidebox" id="part-1">
+            <h1>姓名</h1>
+            <div class="input">
+                <input class="field" id="name" type="text" placeholder="請輸入您的大名">
+            </div>
+            <div class="right-bot">
+                <div class="next-button">下一步</div>
+            </div>
+        </div>
+        <div class="slidebox" id="part-2">
+            <h1>手機</h1>
+            <div class="input">
+                <input class="field" id="tel" type="text" placeholder="請輸入您的手機">
+            </div>
+            <div class="left-bot">
+                <div class="prev-button">上一步</div>
+            </div>
+            <div class="right-bot">
+                <div class="next-button">下一步</div>
+            </div>
+        </div>
+        <div class="slidebox" id="part-3">
+            <h1>帳號</h1>
+            <!-- <div class="explain">
+                <p>未來可以用電話號碼登入，不用特別設定帳號也可以</p>
+            </div> -->
+            <div class="input ">
+                <input class="field" id="uid" type="text" placeholder="請輸入你的帳號">
+            </div>
+            <div class="left-bot">
+                <div class="prev-button">上一步</div>
+            </div>
+            <div class="right-bot">
+                <div class="next-button">下一步</div>
+            </div>
+        </div>
+        <div class="slidebox" id="part-4">
+            <h1>地點</h1>
+            <div class="input">
+                <select class="field" id="position">
+                </select>
+            </div>
+            <div class="left-bot">
+                <div class="prev-button">上一步</div>
+            </div>
+            <div class="right-bot">
+                <div class="next-button">下一步</div>
+            </div>
+        </div>
+        <div class="slidebox" id="part-5">
+            <h1>密碼</h1>
+            <div class="input">
+                <input class="field" id="pwd1" type="password" autocomplete="off" placeholder="請輸入你的密碼">
+            </div>
+            <div class="left-bot">
+                <div class="prev-button">上一步</div>
+            </div>
+            <div class="right-bot">
+                <div class="next-button">下一步</div>
+            </div>
+        </div>
+        <div class="slidebox" id="part-6">
+            <h1>確認密碼</h1>
+            <div class="input">
+                <input class="field" id="new_pwd" type="password"  autocomplete="off" placeholder="請再次輸入你的密碼">
+            </div>
+            <div class="left-bot">
+                <div class="prev-button">上一步</div>
+            </div>
+            <div class="right-bot">
+                <div class="next-button end">完成</div>
+            </div>
+        </div>
+        <div class="slidebox" id="part-7">
+            <h1>完成！</h1>
+            <div class="explain">
+                <p>您已成功成為七美晨光路跑之補給站工作人員，未來可用手機號碼或是帳號登入。</p>
+            </div>
+            <div class="input">
+                <button onclick="location.href='login.php'">點我登入</button>
+            </div>
+        </div>
+    </div>
+    <div id="step-section">
+        <div id="step-row">
+            <div id="step-1" class="step on-step"></div>
+            <div id="step-2" class="step"></div>
+            <div id="step-3" class="step"></div>
+            <div id="step-4" class="step"></div>
+            <div id="step-5" class="step"></div>
+            <div id="step-6" class="step"></div>
+            <div id="step-7" class="step"></div>
+
+        </div>
+    </div>
+</body>
+
+</html>
