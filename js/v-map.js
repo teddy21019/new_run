@@ -83,15 +83,19 @@ let vMap = new Vue({
       let restImg = (emt, run_type) => {
         let url;
         if (emt == 0) {
-          url = 'assets/icons/rest.png'
+          if(run_type ==0){
+            url = 'assets/icons/rest.png';
+          }
+          else if(run_type ==1){
+            url = 'assets/icons/1_rest.png';
+          }else if (run_type ==2){
+            url = 'assets/icons/2_rest.png';
+          }else if (run_type ==3){
+            url = 'assets/icons/3_rest.png';
+          }
+          url = 'assets/icons/rest.png';
         } else if (emt == 1) {
           url = 'assets/icons/emt.png';
-        }else if (run_type ==1){
-          url = 'assets/icons/1_rest.png'
-        }else if (run_type ==2){
-          url = 'assets/icons/2_rest.png'
-        }else if (run_type ==3){
-          url = 'assets/icons/3_rest.png'
         }
         return (
           {
