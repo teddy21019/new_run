@@ -25,7 +25,7 @@ if(Session::get('user')=='admin'){
     }
 }else{
     if(Input::get('action')=='all_position_info'){
-        $position_org = StaffGroup::singleton()->getPositions();
+        $position_org = StaffGroup::singleton()->getPositions($type='stop');
         echo json_encode($position_org);
     }else{
         echo "404";
